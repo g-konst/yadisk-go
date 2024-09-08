@@ -43,3 +43,104 @@ type User struct {
 	IsChild     bool   `json:"is_child"`
 	RegTime     string `json:"reg_time"`
 }
+
+type Link struct {
+	Href      string `json:"href"`
+	Method    string `json:"method"`
+	Templated bool   `json:"templated"`
+}
+
+type Resource struct {
+	AntivirusStatus  map[string]string `json:"antivirus_status"`
+	ResourceId       string            `json:"resource_id"`
+	Share            ShareInfo         `json:"share"`
+	File             string            `json:"file"`
+	Size             int               `json:"size"`
+	PhotosliceTime   string            `json:"photoslice_time"`
+	Embedded         ResourceList      `json:"_embedded"`
+	Exif             Exif              `json:"exif"`
+	CustomProperties map[string]string `json:"custom_properties"`
+	MediaType        string            `json:"media_type"`
+	Preview          string            `json:"preview"`
+	Type             string            `json:"type"`
+	MimeType         string            `json:"mime_type"`
+	Revision         uint              `json:"revision"`
+	PublicUrl        string            `json:"public_url"`
+	Path             string            `json:"path"`
+	Md5              string            `json:"md5"`
+	PublicKey        string            `json:"public_key"`
+	Sha256           string            `json:"sha256"`
+	Name             string            `json:"name"`
+	Created          string            `json:"created"`
+	Sizes            []Preview         `json:"sizes"`
+	Modified         string            `json:"modified"`
+	CommentIds       CommentIds        `json:"comment_ids"`
+}
+
+type ShareInfo struct {
+	IsRoot  bool   `json:"is_root"`
+	IsOwned bool   `json:"is_owned"`
+	Rights  string `json:"rights"`
+}
+
+type ResourceList struct {
+	Sort   string     `json:"sort"`
+	Items  []Resource `json:"items"`
+	Limit  uint       `json:"limit"`
+	Offset uint       `json:"offset"`
+	Path   string     `json:"path"`
+	Total  uint       `json:"total"`
+}
+
+type Exif struct {
+	DateTime     string `json:"date_time"`
+	GpsLongitude string `json:"gps_longitude"`
+	GpsLatitude  string `json:"gps_latitude"`
+}
+
+type Preview struct {
+	Url  string `json:"url"`
+	Name string `json:"name"`
+}
+
+type CommentIds struct {
+	PrivateResource string `json:"private_resource"`
+	PublicResource  string `json:"public_resource"`
+}
+
+type FilesResourceList struct {
+	Items  []Resource `json:"items"`
+	Limit  uint       `json:"limit"`
+	Offset uint       `json:"offset"`
+}
+
+type LastUploadedResourceList struct {
+	Items []Resource `json:"items"`
+	Limit uint       `json:"limit"`
+}
+
+type ResourceUploadLink struct {
+	OperationId string `json:"operation_id"`
+	Href        string `json:"href"`
+	Method      string `json:"method"`
+	Templated   bool   `json:"templated"`
+}
+
+type PublicResource struct {
+	Resource
+	Embedded   PublicResourceList    `json:"_embedded"`
+	ViewsCount uint                  `json:"views_count"`
+	Owner      UserPublicInformation `json:"owner"`
+}
+
+type UserPublicInformation struct {
+	Login       string `json:"login"`
+	DisplayName string `json:"display_name"`
+	Uid         string `json:"uid"`
+}
+
+type PublicResourceList struct {
+	ResourceList
+	PublicKey string           `json:"public_key"`
+	Items     []PublicResource `json:"items"`
+}

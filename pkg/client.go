@@ -18,7 +18,8 @@ type YandexDiskClient struct {
 	BaseURL    *url.URL
 	HTTPClient *http.Client
 	// services
-	Disk *DiskService
+	Disk      *DiskService
+	Resources *ResourcesService
 }
 
 type service struct {
@@ -37,6 +38,7 @@ func NewYandexDiskClient(token string) *YandexDiskClient {
 	}
 
 	c.Disk = &DiskService{c, "disk"}
+	c.Resources = &ResourcesService{c, "disk/resources"}
 
 	return c
 }
