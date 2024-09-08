@@ -156,3 +156,7 @@ type TrashResourceList struct {
 	ResourceList
 	Items []TrashResource `json:"items"`
 }
+
+type OperationStatus struct {
+	Status string `json:"status"`
+}

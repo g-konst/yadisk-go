@@ -179,3 +179,9 @@ type TrashRestoreOpts struct {
 	Name       string `url:"name"`
 	Overwrite  bool   `url:"overwrite"`
 }
+
+// Operations
+type OperationsGetOpts struct {
+	OperationId string `url:"operation_id,required"`
+	Fields      string `url:"fields"`
+}
