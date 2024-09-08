@@ -28,7 +28,7 @@ type service struct {
 
 func NewYandexDiskClient(token string) *YandexDiskClient {
 	baseUrl, _ := url.Parse("https://cloud-api.yandex.net")
-	baseUrl.JoinPath(API_VERSION)
+	baseUrl = baseUrl.JoinPath(API_VERSION)
 
 	c := &YandexDiskClient{
 		Token:      token,
