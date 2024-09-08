@@ -154,3 +154,28 @@ type PublicSaveToDiskOpts struct {
 	Path       string `url:"path"`
 	SavePath   string `url:"save_path"`
 }
+
+// Trash
+type TrashGetOpts struct {
+	Path        string `url:"path,required"`
+	Fields      string `url:"fields"`
+	Limit       uint   `url:"limit,omitempty"`
+	Offset      uint   `url:"offset"`
+	PreviewCrop bool   `url:"preview_crop"`
+	PreviewSize string `url:"preview_size"`
+	Sort        string `url:"sort"`
+}
+
+type TrashClearOpts struct {
+	Fields     string `url:"fields"`
+	ForceAsync bool   `url:"force_async"`
+	Path       string `url:"path"`
+}
+
+type TrashRestoreOpts struct {
+	Path       string `url:"path,required"`
+	Fields     string `url:"fields"`
+	ForceAsync bool   `url:"force_async"`
+	Name       string `url:"name"`
+	Overwrite  bool   `url:"overwrite"`
+}

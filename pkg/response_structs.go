@@ -144,3 +144,15 @@ type PublicResourceList struct {
 	PublicKey string           `json:"public_key"`
 	Items     []PublicResource `json:"items"`
 }
+
+type TrashResource struct {
+	Resource
+	Embedded   TrashResourceList `json:"_embedded"`
+	OriginPath string            `json:"origin_path"`
+	Deleted    string            `json:"deleted"`
+}
+
+type TrashResourceList struct {
+	ResourceList
+	Items []TrashResource `json:"items"`
+}
