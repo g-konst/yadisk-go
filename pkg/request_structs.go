@@ -127,3 +127,30 @@ type ResourcesGetUploadLinkOpts struct {
 	Fields    string `url:"fields"`
 	Overwrite bool   `url:"overwrite"`
 }
+
+// Public
+type PublicGetOpts struct {
+	PublicKey   string `url:"public_key,required"`
+	Fields      string `url:"fields"`
+	Limit       uint   `url:"limit,omitempty"`
+	Offset      uint   `url:"offset"`
+	Path        string `url:"path"`
+	PreviewCrop bool   `url:"preview_crop"`
+	PreviewSize string `url:"preview_size"`
+	Sort        string `url:"sort"`
+}
+
+type PublicGetDownloadLinkOpts struct {
+	PublicKey string `url:"public_key,required"`
+	Fields    string `url:"fields"`
+	Path      string `url:"path"`
+}
+
+type PublicSaveToDiskOpts struct {
+	PublicKey  string `url:"public_key,required"`
+	Fields     string `url:"fields"`
+	ForceAsync bool   `url:"force_async"`
+	Name       string `url:"name"`
+	Path       string `url:"path"`
+	SavePath   string `url:"save_path"`
+}

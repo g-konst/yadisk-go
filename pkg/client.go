@@ -20,6 +20,7 @@ type YandexDiskClient struct {
 	// services
 	Disk      *DiskService
 	Resources *ResourcesService
+	Public    *PublicService
 }
 
 type service struct {
@@ -39,6 +40,7 @@ func NewYandexDiskClient(token string) *YandexDiskClient {
 
 	c.Disk = &DiskService{c, "disk"}
 	c.Resources = &ResourcesService{c, "disk/resources"}
+	c.Public = &PublicService{c, "disk/public/resources"}
 
 	return c
 }
